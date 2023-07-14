@@ -23,7 +23,7 @@ We want to proposal this structure for the prize pool (please remove this line i
 
 Automated findings output for the audit can be found [here](add link to report) within 24 hours of audit opening.
 
-*Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards.*
+_Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards._
 
 Below is a list of statements we wish to clear up, these are not bugs it as design but flagging so nobody raises them:
 
@@ -50,6 +50,10 @@ _Note for C4 wardens: Anything included in the automated findings output is cons
 # Overview
 
 [Lens V1 docs](https://docs.lens.xyz/docs) to learn more about the Lens Protocol.
+
+Although these docs are for Lens V1, they are still useful to understand the Lens Protocol in general. To see the changes done in Lens V2 - look at the next section.
+
+Upgrade from Lens V1 to V2 will be done in-place using a transparent proxy pattern, knowdlege about Lens V1 is required in the context of upgrade and migration success, including unexpected breaking changes.
 
 ## What is Lens v2 and Lens in general?
 
@@ -296,16 +300,10 @@ N/A (optional)
 
 # Setup
 
-1. Clone the repository (you must have SSH enabled in GitHub, otherwise git submodules will fail to be cloned):
+1. Clone the repository:
 
 ```bash
-git clone git@github.com:code-423n4/2023-07-lens.git
-```
-
-And initialize submodules:
-
-```bash
-git submodule update --init --recursive
+git clone https://github.com/code-423n4/2023-07-lens.git
 ```
 
 2. Install Foundry by following the instructions from [their repository](https://book.getfoundry.sh/getting-started/installation).
@@ -316,6 +314,20 @@ curl -L https://foundry.paradigm.xyz | bash
 
 ```bash
 foundryup
+```
+
+## Install dependencies in submodules
+
+You can do it either with forge:
+
+```bash
+forge install
+```
+
+or directly with git:
+
+```bash
+git submodule update --init --recursive
 ```
 
 ## Build
@@ -331,6 +343,8 @@ You will notice a warning about [LensHubInitializable](contracts/misc/LensHubIni
 ```bash
 forge build --via-ir
 ```
+
+During the deployment we will compile with `--via-ir` and tweak the optimizer runs for optimum gas performance while still keeping the contract size under the limit.
 
 ## Test
 
@@ -351,3 +365,5 @@ forge coverage
 # Docs
 
 You can go to our [docs](https://docs.lens.xyz/docs) (still V1) to learn more about Lens Protocol.
+
+Upgrade from Lens V1 to V2 will be done in-place using a transparent proxy pattern, knowdlege about Lens V1 is required in the context of upgrade and migration success, including unexpected breaking changes.
