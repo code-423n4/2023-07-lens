@@ -6,7 +6,7 @@ We want to proposal this structure for the prize pool (please remove this line i
   - HM awards: $63,000 USDC
   - Analysis awards: $0 USDC
   - QA awards: $1,750 USDC
-  - Bot Race awards: $5250 USDC
+  - Bot Race awards: $5,250 USDC
   - Gas awards: $0 USDC
   - Judge awards: $9,000 USDC
   - Lookout awards: $6,000 USDC
@@ -19,41 +19,116 @@ We want to proposal this structure for the prize pool (please remove this line i
 
 **Please note that for this contest, gas optimizations AND Analysis Reports are both out of scope. The Lens Protocol team will not be awarding prize funds for gas-specific submissions.**
 
-## Automated Findings / Publicly Known Issues
+## Automated Findings / Publicly Known Issues / Clarifications & Assumptions
 
 Below is a list of statements we wish to clear up, these are not bugs it as design but flagging so nobody raises them:
 
 - You can link a `LensHandle` to a `Profile` and on transfer of that handle or profile the link will still be valid. The new owner will need to unlink for it to be removed.
-- Referrals can be duplicated its down to the clients our referral is flexible and can be used in many ways.
-- You can mirror and collect through your own mirror to earn referrals.
+- Referral system:
+  - Duplicated referrals are allowed.
+  - A user that is about to act on a publication can always first interact (mirror, quote, comment) and then act passing its own publication as referral (wether he is using the same profile or an alt profile he also owns). This not only applies to act, but also to mirror, quote and comment.
+  - A user can pass itself as unverified referral for any action trying to get a benefit. However, take into account that specific module implementations can reject unverified referrals.
+- All contracts' critical roles (like the owner address in the Ownable pattern) are expected to be secure multisigs, not EOAs.
+- There are five TODOs inside the `contracts/` directory, only four of them are in files inside the scope of the audit. However, these TODOs will be solved later.
+- Breaking changes from V1 to V2:
+  - Follow NFT delegation power feature removed. It might be added in the future, compatible with DAO Governors.
+  - Lens V1 Collect and Reference modules that were querying the Follow state will fail after V2 upgrade, given that `isFollowing(uint256 profileId, address follower, uint256 followNFTTokenId)` function is not part of the Follow module interface anymore.
+  - Function interfaces have changed for most of them.
+  - Cannot comment on mirrors anymore.
 
-Automated findings output for the audit can be found [here](add link to report) within 24 hours of audit opening.
+<!-- Automated findings output for the audit can be found [here](add link to report) within 24 hours of audit opening.
 
 _Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards._
 
-[ ⭐️ SPONSORS ADD INFO HERE ]
+[ ⭐️ SPONSORS ADD INFO HERE ] -->
 
 # Overview
 
-_Please provide some context about the code being audited, and identify any areas of specific concern in reviewing the code. (This is a good place to link to your docs, if you have them.)_
-
-<!-- TODO: By July 14th -->
-
-## Describe anything that adds any special logic that makes approaching unique
-
-<!-- TODO: By July 14th -->
-
-## Identify any areas of specific concern in reviewing the code
-
-<!-- TODO: By July 14th -->
+[Lens V1 docs](https://docs.lens.xyz/docs) to learn more about the Lens Protocol.
 
 ## What is Lens v2 and Lens in general?
 
-<!-- TODO: By July 14th -->
+**Lens Protocol** is a social graph built on-chain, designed to empower creators to own their identities, and links between themselves and their community, forming a fully composable, user-owned social graph. The protocol is built from the ground up with modularity in mind, allowing new features and fixes to be added while ensuring immutable user-owned content and social relationships.
+
+**Lens V2** is the first big upgrade of the Lens Protocol, it aims to improve the protocol design based on all the learnings after its first year, as well as introduce some new interesting features:
+
+- All the social operations are now Profile-based, instead of address-based, meaning that they require to be performed by a Profile
+  - You can no longer follow with an address. All follows are required to be done by a Profile
+  - Legacy Collect action, and new Publication Actions are now executed by Profiles (common proxy profiles might be used to support address-based collects if wanted)
+- Follow NFTs are optimized for the best UX by not being ERC-721 by default. They now have two states:
+  - Unwrapped (default, non-ERC-721 state): Tied to the follower Profile, meaning they move with the follower Profile when it is transferred to a different address
+  - Wrapped (opt-in, ERC-721 state): Follow NFTs natively support being wrapped into ERC-721 tokens, to get the best out of composability with other protocols
+  - Ownership/Custody of the Follow NFT is no longer related to the following state, the follower profile is set as a field inside the Follow NFT. This enables a lot of interesting use cases and improvements.
+- Addition of the Advanced Referral System (more details below)
+- Addition of Publication Action Modules
+- Addition of Delegated Executors (more details below)
+- Lens Handles are now ERC721s and managed by a separate contract
+- TokenGuardian pattern introduced on both Profiles and Handles to supply additional protection of social assets
+- All code was reworked and rewritten from scratch
+- Many more fixes and improvements
+
+Many of the things mentioned above introduce breaking changes in the protocol.
+
+## Describe anything that adds any special logic that makes approaching unique
+
+- The ControllableByContract pattern that we introduced to allow preparing upgrades on beforehand, automating them through contracts and testing them in forks, while also avoiding the risk of transferring ownership of Governance and ProxyAdmin.
+
+- The Follow NFT design.
+
+## Identify any areas of specific concern in reviewing the code
+
+Please give special attention to Upgrade and Migration procedures, and anything that can get broken after the V2 upgrade (like the breaking changes mentioned in the "Publicly Known Issues" section). For that you might need to refer to the Lens V1 code.
+
+The ControllableByContract pattern introduced, as it will be used by Governance and ProxyAdmin contracts, the latter being the most critical piece of Lens Protocol's security.
 
 ## Defintion of words and terms in Lens codebase
 
-<!-- TODO: By July 14th -->
+- **Delegated Executor:** An address allowed to manage a the social operations of a profile (following, posting, commenting, mirroring, acting). This was specially motivated by the use case of holding the profile in a secure wallet (e.g. hardware wallet or multisig), and delegating execution to another wallet (e.g. a hot wallet in your phone).
+- **Transaction Executor:** The msg.sender in a regular transaction, the signer in a meta-transaction. Take into account that this can be either the owner of a profile, as well as one of its delegated executors.
+- **Publication:** Either a Post, Comment, Quote or Mirror. Do not confuse the generic term "Publication" with "Post", which is an specific type of Publication.
+- **Mirror:** An amplification of a Post, Comment or Quote. For example, on Twitter it would be a "Retweet", on Instagram a "Repost", etc.
+- **Legacy Collect:** The collect operation from Lens V1. It says "Legacy" as in Lens V2 it was re-implemented as a Publication Action.
+- **Token Guardian:** Protection mechanism for the tokens held by an address, which restricts transfers and approvals when enabled. See [LIP-4](link) for more.
+- **Pure-V2 Tree:** A tree of interactions formed by all Lens V2 publications. Basically, a set of Lens V2 comments, quotes and/or mirrors that converge on a Lens V2 post.
+- **Non-Pure V2 Tree or V1-Contaminated Tree:** A tree of interactions that has a V1 post at the root, and some mix of V1/V2 comments/quotes/mirrors.
+- **Target:** A publication that an operation is performed on (publication that is being acted on, or a publication that is being commented/quoted/mirrored).
+- **Referrer or Referral:** A publication that allowed the discovery of the TARGET which led to an operation on TARGET (e.g. a mirror that led to a collect of the original post, etc).
+- **Unverified referrals:** Referrals passed just as profiles (no publication specified), which are not verified if they're connected to the Target publication by the referral system.
+
+## Lens V2 Advanced Referral system
+
+In V2 we introduced a complex Referral System, which supports verified and non-verified referrals for any module action that is performed on a publication (Reference Modules, Action Modules).
+Referral system allows to reward users that helped to discover a publication, and also to reward original posters for any activity that happens below, and reward the applications and UIs that are used to interact with Lens Protocol and help the discovery of content.
+
+Lens V2 Referral System supports:
+
+- Passing multiple referrals.
+- Passing any publication as a referral as long as it originates from the same post (any from a multi-branch tree of comments/quotes/mirrors of a single post).
+- Upwards and downwards referrals (a post can be a referral for it’s comment/quote, and vice-versa), allowing to award original posters for any activity that happens below.
+- Non-verified referrals: you can pass a profile as a referral (good for mentions, or front-ends, anything that allowed a person to discover something).
+
+### Referral System Rules
+
+As we upgrade from Lens V1 to Lens V2, we need to take into account that not all publications would support the new Referral system (Lens V1 publications are supported only partly):
+
+- **Rule #1 - About Pure-V2 Trees:** all the new complex interactions and referrers that were introduced in V2 work as expected.
+  - Mirrors cannot be a target, but any other publication (post, comment, quote) can.
+  - The same publication cannot be simultaneously a target and a referrer. Basically, a publication cannot be referrer of itself.
+  - Any publication can be referrer of another publication if exists a path (conformed by quotes, comments and/or mirrors) from each of them to the same root post.
+  - The path can go upwards and downwards (later comments can be referrer of the earlier ones, and vice versa).
+- **Rule #2 - About Non-Pure Trees:** referrers only work for “direct/pointed” publications:
+  - Only 1 level of depth between target and referrer is allowed (as root publication is not forwarded on non-pure v2 trees).
+  - Only downwards publication can be a referral (e.g. in a post←comment situation, only the comment can refer a post, but not the other way around).
+  - V2 pubs support referrals for act and reference modules. Basically, referrals are supported when acting, mirroring, quoting and commenting.
+  - V1 publications did not support referrals in the reference modules, so any comment/mirror interaction on a V1 pub should not support a referral.
+  - During Legacy Collect of V1 publications only a single mirror (either V1 or V2 mirror) directly pointing to the target is supported as a referrer.
+- **Rule #3 - Non-Verified Referrals (profile referrals):** should work in all V1 and V2 publications that support referrals
+
+**_Why there is a difference between Pure and Non-Pure trees?_**
+
+In V2 we introduced a “ROOT” - which is a post, and all the comments/quotes have this root copied recursively. So all the publication tree can always refer and check if two publications belong to the same ROOT - originating from the same post.
+
+But in V1 we didn’t have a concept of a “ROOT”, so the existing V1 trees don’t have it.
 
 ## High-level overview of Lens protocol
 
@@ -191,7 +266,7 @@ _Sponsor, please confirm/edit the information below._
 - Is it an NFT?: Yes
 - Does the token conform to the ERC20 standard?: N/A (its ERC721)
 - Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?: Yes
-- Please describe required context: Upgrade from Lens V1 to V2 will be done in-place using a transparent proxy pattern, knowdlege about Lens V1 is just required in the context of the secuiry
+- Please describe required context: Upgrade from Lens V1 to V2 will be done in-place using a transparent proxy pattern, knowdlege about Lens V1 is required in the context of upgrade and migration success, including unexpected breaking changes.
 - Does it use an oracle?: No
 - Are there any novel or unique curve logic or mathematical models?: No
 - Is it a fork of a popular project?: No
@@ -213,8 +288,14 @@ git submodule update --init --recursive
 ```
 
 2. Install Foundry by following the instructions from [their repository](https://book.getfoundry.sh/getting-started/installation).
-   - curl -L https://foundry.paradigm.xyz | bash
-   - foundryup
+
+```bash
+curl -L https://foundry.paradigm.xyz | bash
+```
+
+```bash
+foundryup
+```
 
 ## Build
 
