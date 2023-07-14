@@ -29,12 +29,13 @@ Below is a list of statements we wish to clear up, these are not bugs it as desi
   - A user that is about to act on a publication can always first interact (mirror, quote, comment) and then act passing its own publication as referral (wether he is using the same profile or an alt profile he also owns). This not only applies to act, but also to mirror, quote and comment.
   - A user can pass itself as unverified referral for any action trying to get a benefit. However, take into account that specific module implementations can reject unverified referrals.
 - All contracts' critical roles (like the owner address in the Ownable pattern) are expected to be secure multisigs, not EOAs.
-- There are five TODOs inside the `contracts/` directory, only four of them are in files inside the scope of the audit. However, these TODOs will be solved later.
+- There are five TODOs inside the `contracts/` directory: LensHandles ([#1](contracts/namespaces/LensHandles.sol#L167), [#2](contracts/namespaces/LensHandles.sol#L176)), Types ([#3](contracts/libraries/constants/Types.sol#L49), [#4](contracts/libraries/constants/Types.sol#L345)), LensSeaDropCollection ([#5](contracts/modules/act/seadrop/LensSeaDropCollection.sol#L22) this file is out of the audit scope). These TODOs will be resolved later.
 - Breaking changes from V1 to V2:
   - Follow NFT delegation power feature removed. It might be added in the future, compatible with DAO Governors.
   - Lens V1 Collect and Reference modules that were querying the Follow state will fail after V2 upgrade, given that `isFollowing(uint256 profileId, address follower, uint256 followNFTTokenId)` function is not part of the Follow module interface anymore.
   - Function interfaces have changed for most of them.
   - Cannot comment on mirrors anymore.
+  - Indexers will need to adapt to new events.
 
 <!-- Automated findings output for the audit can be found [here](add link to report) within 24 hours of audit opening.
 
