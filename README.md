@@ -132,7 +132,25 @@ But in V1 we didn’t have a concept of a “ROOT”, so the existing V1 trees d
 
 ## High-level overview of Lens protocol
 
-<!-- TODO: By July 14th -->
+### Lens V2 Publication Layer Architecture
+
+![LensV2 Publication Layer Architecture](https://github.com/code-423n4/2023-07-lens/assets/5636644/736010ad-7575-40f7-9032-f9399ef35232)
+
+### Lens V2 Social Layer Architecture
+
+![LensV2 Social Layer Architecture](https://github.com/code-423n4/2023-07-lens/assets/5636644/1309a52c-8f5b-476c-a69d-0cefbb24104d)
+
+### Lens V1->V2 Migration Scheme
+
+![Lens V1-V2 Migration Scheme](https://github.com/code-423n4/2023-07-lens/assets/5636644/679e5957-f3ca-48bd-8d82-4d3714097bd3)
+
+### Lens V1->V2 Upgrade Scheme
+
+![Lens V1-V2 Upgrade Scheme](https://github.com/code-423n4/2023-07-lens/assets/5636644/85e8411b-713e-4290-98a0-6c6b5af6e1a7)
+
+### Advanced Referral System Example
+
+![Advanced Referral System](https://github.com/code-423n4/2023-07-lens/assets/5636644/820871a0-f7b1-4f1a-bf1f-a3fc1a258782)
 
 # Scope
 
