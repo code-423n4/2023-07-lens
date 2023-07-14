@@ -266,8 +266,6 @@ Everything inside [`contracts/modules`](contracts/modules/), [`contracts/librari
 
 N/A (optional)
 
-_Sponsor, please confirm/edit the information below._
-
 ## Scoping Details
 
 ```
