@@ -3,13 +3,13 @@
 We want to proposal this structure for the prize pool (please remove this line if you are ok with it if not chat in discord)
 
 - Total Prize Pool: $85,500 USDC
-  - HM awards: $75,000 USDC
+  - HM awards: $63,000 USDC
   - Analysis awards: $0 USDC
-  - QA awards: $1,000 USDC
-  - Bot Race awards: $0 USDC
+  - QA awards: $1,750 USDC
+  - Bot Race awards: $5250 USDC
   - Gas awards: $0 USDC
   - Judge awards: $9,000 USDC
-  - Lookout awards: $0 USDC - manage by Lens
+  - Lookout awards: $6,000 USDC
   - Scout awards: $500 USDC
 - Join [C4 Discord](https://discord.gg/code4rena) to register
 - Submit findings [using the C4 form](https://code4rena.com/contests/2023-07-lens-protocol-v2/submit)
