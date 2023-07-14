@@ -17,7 +17,7 @@ We want to proposal this structure for the prize pool (please remove this line i
 - Starts July 17, 2023 20:00 UTC
 - Ends July 31, 2023 20:00 UTC
 
-**Please note that for this contest, gas optimizations are out of scope. The Lens Protocol team will not be awarding prize funds for gas-specific submissions.**
+**Please note that for this contest, gas optimizations AND Analysis Reports are both out of scope. The Lens Protocol team will not be awarding prize funds for gas-specific submissions.**
 
 ## Automated Findings / Publicly Known Issues
 
