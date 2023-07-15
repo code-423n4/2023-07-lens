@@ -41,7 +41,7 @@ Below is a list of statements we wish to clear up, these are not bugs it as desi
   - Cannot comment on mirrors anymore.
   - Indexers will need to adapt to new events.
 
-
+Also, anything found in [previous audits](https://github.com/code-423n4/2023-07-lens/tree/main/audit) is considered a known issue
 
 # Overview
 
