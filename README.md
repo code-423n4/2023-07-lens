@@ -74,13 +74,13 @@ Upgrade from Lens V1 to V2 will be done in-place using a transparent proxy patte
 
 Many of the things mentioned above introduce breaking changes in the protocol.
 
-## Describe anything that adds any special logic that makes approaching unique
+## Special logic found in this contest
 
 - The ControllableByContract pattern that we introduced to allow preparing upgrades on beforehand, automating them through contracts and testing them in forks, while also avoiding the risk of transferring ownership of Governance and ProxyAdmin.
 
 - The Follow NFT design.
 
-## Identify any areas of specific concern in reviewing the code
+## Areas of specific concern
 
 Please give special attention to Upgrade and Migration procedures, and anything that can get broken after the V2 upgrade (like the breaking changes mentioned in the "Publicly Known Issues" section). For that you might need to refer to the Lens V1 code.
 
