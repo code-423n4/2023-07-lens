@@ -25,6 +25,8 @@ Automated findings output for the audit can be found [here](add link to report) 
 
 _Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards._
 
+Anything found in the previous audits (found [here](https://github.com/code-423n4/2023-07-lens/tree/main/audit) and in [the C4 contest for V1](https://code4rena.com/reports/2022-02-aave-lens)) are considered known issues.
+
 Below is a list of statements we wish to clear up, these are not bugs it as design but flagging so nobody raises them:
 
 - You can link a `LensHandle` to a `Profile` and on transfer of that handle or profile the link will still be valid. The new owner will need to unlink for it to be removed.
