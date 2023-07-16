@@ -40,7 +40,8 @@ Below is a list of statements we wish to clear up, these are not bugs it as desi
   - Function interfaces have changed for most of them.
   - Cannot comment on mirrors anymore.
   - Indexers will need to adapt to new events.
-
+- Whitelisting of anything on lens and the upgrade of the protocol is currently controlled by lens and has not got any governance on it
+- Whitelisting profile creator means they can create as many profiles as they like
 
 
 # Overview
