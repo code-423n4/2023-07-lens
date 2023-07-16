@@ -40,9 +40,10 @@ Below is a list of statements we wish to clear up, these are not bugs it as desi
   - Function interfaces have changed for most of them.
   - Cannot comment on mirrors anymore.
   - Indexers will need to adapt to new events.
-- Whitelisting of anything on lens and the upgrade of the protocol is currently controlled by lens and has not got any governance on it
-- Whitelisting profile creator means they can create as many profiles as they like
-
+- You can still act and legacy collect publications of burnt profiles. Unless the modules contain logic that requires profile existence.
+- Publications from burnt profiles are allowed as verified referrals, unless the modules contain logic that requires referral profiles existence. We might change this to not be allowed.
+- Whitelisted profile/handle creators are expected to be trusted (i.e. [Lens V1 - C4 | M-03](https://code4rena.com/reports/2022-02-aave-lens#m-03-profile-creation-can-be-frontrun), [Lens V1 - C4 | M-04](https://code4rena.com/reports/2022-02-aave-lens#m-04-name-squatting), [Lens V1 - C4 | M-12](https://code4rena.com/reports/2022-02-aave-lens#m-12-ineffective-whitelist) are "by design"). Thus, any malicious behaviour is not contemplated as a bug. For example, front-running between each-other, handle squatting, creation/minting of any amount of desired profiles, etc.
+- Governance and Proxy Admins are trusted. Issues that can come from Governance malicious executions or Proxy Admins malicious upgrades will not be taken into account (for example, a LensHub upgrade that will perform malicious actions on users who gave approvals to it [Lens V1 - C4 | M-06](https://code4rena.com/reports/2022-02-aave-lens#m-06-imprecise-management-of-users-allowance-allows-the-admin-of-the-upgradeable-proxy-contract-to-rug-users), or Governance whitelisting a malicious/erroneous module on purpose [Lens V1 - C4 | M-10](https://code4rena.com/reports/2022-02-aave-lens#m-10-zero-collection-module-can-be-whitelisted-and-set-to-a-post-which-will-then-revert-all-collects-and-mirrors-with-publicationdoesnotexist)). This is part of the risk model assumptions and its management will become more decentralized over time.
 
 # Overview
 
