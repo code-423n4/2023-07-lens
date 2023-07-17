@@ -360,6 +360,13 @@ You can run coverage using:
 forge coverage
 ```
 
+
+## Slither
+
+In order to run Slither - first update foundry using the `foundryup` command
+Then run the following command `forge build --build-info --skip '*/test/**' --skip '*/script/**' --skip '*/modules/**' --force && slither . --ignore-compile`
+
+
 # Docs
 
 You can go to our [docs](https://docs.lens.xyz/docs) (still V1) to learn more about Lens Protocol.
