@@ -95,7 +95,7 @@ The ControllableByContract pattern introduced, as it will be used by Governance 
 - **Publication:** Either a Post, Comment, Quote or Mirror. Do not confuse the generic term "Publication" with "Post", which is an specific type of Publication.
 - **Mirror:** An amplification of a Post, Comment or Quote. For example, on Twitter it would be a "Retweet", on Instagram a "Repost", etc.
 - **Legacy Collect:** The collect operation from Lens V1. It says "Legacy" as in Lens V2 it was re-implemented as a Publication Action.
-- **Token Guardian:** Protection mechanism for the tokens held by an address, which restricts transfers and approvals when enabled. See [LIP-4](link) for more.
+- **Token Guardian:** Protection mechanism for the tokens held by an address, which restricts transfers and approvals when enabled. See [LIP-4](https://github.com/lens-protocol/LIPs/blob/main/LIPs/lip-4.md) for more.
 - **Pure-V2 Tree:** A tree of interactions formed by all Lens V2 publications. Basically, a set of Lens V2 comments, quotes and/or mirrors that converge on a Lens V2 post.
 - **Non-Pure V2 Tree or V1-Contaminated Tree:** A tree of interactions that has a V1 post at the root, and some mix of V1/V2 comments/quotes/mirrors.
 - **Target:** A publication that an operation is performed on (publication that is being acted on, or a publication that is being commented/quoted/mirrored).
