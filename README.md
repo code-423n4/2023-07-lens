@@ -360,6 +360,22 @@ You can run coverage using:
 forge coverage
 ```
 
+## Slither
+
+If you run `slither .` it will output an error. As a workaround, at the time of writing this, you need to follow these steps.
+
+1. Have latest foundry version, update it with the following command:
+
+```bash
+foundryup
+```
+
+2. Run slither after compiling excluding `test/` and `contract/modules/` directories (which are out of the scope of this audit anyways):
+
+```bash
+forge build --build-info --skip '*/test/**' --skip '*/modules/**' --force && slither . --ignore-compile
+```
+
 # Docs
 
 You can go to our [docs](https://docs.lens.xyz/docs) (still V1) to learn more about Lens Protocol.
