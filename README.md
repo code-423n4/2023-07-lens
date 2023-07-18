@@ -141,23 +141,23 @@ But in V1 we didn’t have a concept of a “ROOT”, so the existing V1 trees d
 
 ### Lens V2 Publication Layer Architecture
 
-![LensV2 Publication Layer Architecture](diagrams/pub-layer-architecture.svg)
+![LensV2 Publication Layer Architecture](diagrams/pub-layer-architecture.png)
 
 ### Lens V2 Social Layer Architecture
 
-![LensV2 Social Layer Architecture](diagrams/social-layer-architecture.svg)
+![LensV2 Social Layer Architecture](diagrams/social-layer-architecture.png)
 
 ### Lens V1->V2 Migration Scheme
 
-![Lens V1-V2 Migration Scheme](diagrams/migration-scheme.svg)
+![Lens V1-V2 Migration Scheme](diagrams/migration-scheme.png)
 
 ### Lens V1->V2 Upgrade Scheme
 
-![Lens V1-V2 Upgrade Scheme](diagrams/upgrade-scheme.svg)
+![Lens V1-V2 Upgrade Scheme](diagrams/upgrade-scheme.png)
 
 ### Advanced Referral System Example
 
-![Advanced Referral System](diagrams/referral-system.svg)
+![Advanced Referral System](diagrams/referral-system.png)
 
 # Scope
 
