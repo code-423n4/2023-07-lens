@@ -141,23 +141,23 @@ But in V1 we didn’t have a concept of a “ROOT”, so the existing V1 trees d
 
 ### Lens V2 Publication Layer Architecture
 
-![LensV2 Publication Layer Architecture](https://github.com/code-423n4/2023-07-lens/blob/main/diagrams/pub-layer-architecture.png)
+![LensV2 Publication Layer Architecture](https://github.com/code-423n4/2023-07-lens/blob/main/diagrams/pub-layer-architecture.png?raw=true)
 
 ### Lens V2 Social Layer Architecture
 
-![LensV2 Social Layer Architecture](https://github.com/code-423n4/2023-07-lens/blob/main/diagrams/social-layer-architecture.png)
+![LensV2 Social Layer Architecture](https://github.com/code-423n4/2023-07-lens/blob/main/diagrams/social-layer-architecture.png?raw=true)
 
 ### Lens V1->V2 Migration Scheme
 
-![Lens V1-V2 Migration Scheme](https://github.com/code-423n4/2023-07-lens/blob/main/diagrams/migration-scheme.png)
+![Lens V1-V2 Migration Scheme](https://github.com/code-423n4/2023-07-lens/blob/main/diagrams/migration-scheme.png?raw=true)
 
 ### Lens V1->V2 Upgrade Scheme
 
-![Lens V1-V2 Upgrade Scheme](https://github.com/code-423n4/2023-07-lens/blob/main/diagrams/upgrade-scheme.png)
+![Lens V1-V2 Upgrade Scheme](https://github.com/code-423n4/2023-07-lens/blob/main/diagrams/upgrade-scheme.png?raw=true)
 
 ### Advanced Referral System Example
 
-![Advanced Referral System](https://github.com/code-423n4/2023-07-lens/blob/main/diagrams/referral-system.png)
+![Advanced Referral System](https://github.com/code-423n4/2023-07-lens/blob/main/diagrams/referral-system.png?raw=true)
 
 # Scope
 
