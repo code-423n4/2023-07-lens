@@ -88,7 +88,7 @@ Please give special attention to Upgrade and Migration procedures, and anything 
 
 The ControllableByContract pattern introduced, as it will be used by Governance and ProxyAdmin contracts, the latter being the most critical piece of Lens Protocol's security.
 
-## Defintion of words and terms in Lens codebase
+## Definition of words and terms in Lens codebase
 
 - **Delegated Executor:** An address allowed to manage a the social operations of a profile (following, posting, commenting, mirroring, acting). This was specially motivated by the use case of holding the profile in a secure wallet (e.g. hardware wallet or multisig), and delegating execution to another wallet (e.g. a hot wallet in your phone).
 - **Transaction Executor:** The msg.sender in a regular transaction, the signer in a meta-transaction. Take into account that this can be either the owner of a profile, as well as one of its delegated executors.
