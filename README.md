@@ -21,7 +21,7 @@ We want to proposal this structure for the prize pool (please remove this line i
 
 ## Automated Findings / Publicly Known Issues / Clarifications & Assumptions
 
-Automated findings output for the audit can be found [here]([add link to report](https://gist.github.com/thebrittfactor/3dc2ed1320de95e111a25c1744f4d33e).
+Automated findings output for the audit can be found [here](https://gist.github.com/thebrittfactor/3dc2ed1320de95e111a25c1744f4d33e).
 
 _Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards._
 
