@@ -1,0 +1,894 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q3-2023 / lens-jul17
+==============================================================
+
+[07/17/2023 17:14] kartoonjoy (pinned)
+👋 Hello and welcome to the audit channel for the $85,500 USDC **Lens Protocol V2** audit!
+
+📆 Audit opens 07/17/2023 20:00 (20:00 UTC) and runs through 07/31/2023 20:00 (20:00 UTC) (14 days).
+
+Please give a warm welcome to the Lens Protocol team, particularly @Alan, @Victor Naumik, @joshstevens19, who will be available for questions either here in the channel or via DM in the GMT timezone(s).
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/contests/2023-07-lens-protocol-v2#top
+
+{Embed}
+https://code4rena.com/contests/2023-07-lens-protocol-v2
+Code4rena
+Code4rena is a competitive audit platform that finds more high-severity vulnerabilities, more quickly than any other auditing method.
+Code4rena - ARCHIVE-Q3-2023 - lens-jul17 [1129378367813189652].txt_Files/c4-og-banner-AF181.png
+
+
+[07/17/2023 19:29] kartoonjoy (pinned)
+❗  Please note that for this contest, gas optimizations AND Analysis Reports are both out of scope. The Lens Protocol team will not be awarding prize funds for gas-specific submissions.
+
+
+[07/17/2023 19:29] kartoonjoy
+Pinned a message.
+
+
+[07/17/2023 19:29] kartoonjoy
+Pinned a message.
+
+
+[07/18/2023 00:09] _wagmi
+Good luck all 👍 Excited to see what you all find 🤝
+
+{Reactions}
+🎉 
+
+[07/18/2023 08:36] saint6704
+```Failed to resolve file: "/root/audit/c4/2023-07-lens/lib/seadrop/lib/utility-contracts/src/TwoStepOwnable.sol": No such file or directory (os error 2).
+ Check configured remappings..
+    --> "/root/audit/c4/2023-07-lens/lib/seadrop/src/clones/ERC721ContractMetadataCloneable.sol"
+        "utility-contracts/TwoStepOwnable.sol"```
+
+while doing ```forge test``` I'm getting above error can anyone help
+
+
+[07/18/2023 09:09] klau5_
+I think you should do `git submodule update --init --recursive`
+
+
+[07/18/2023 09:09] saint6704
+I did it but I'm still getting the same error
+
+
+[07/18/2023 09:19] klau5_
+Check if the TwoStepOwnable.sol file exist at your local. If exist, I think it's path related problem.. 
+ `forge test` works with no special setting for me, so I think you should check your local setting.
+
+
+[07/18/2023 11:27] johnyboy8854
+there are a bunch of cool graphs in the repo (High-level overview of Lens protocol) that are not correctly displayed on the code4rena page. Maybe someone might fix that
+
+
+[07/18/2023 11:39] kartoonjoy
+We're working on it. Thank you!
+
+{Reactions}
+🥰 
+
+[07/18/2023 18:56] parsely.
+I did a `forge install --no-git` and then `forge build` and the build downloaded many dependancies. Perhaps that might help
+
+
+[07/18/2023 18:57] saint6704
+Still not working
+
+
+[07/18/2023 18:58] parsely.
+ok give me 5 min, going to reclone to see if I can replicate
+
+
+[07/18/2023 18:59] saint6704
+sure
+
+
+[07/18/2023 19:03] parsely.
+I recloned, and did nothing else just ran `forge test` it gave me `Missing dependencies found. Installing now...`  I tried from within VS code terminal, and then just using normal command line terminal, both gave the same, are you using Linux?
+
+
+[07/18/2023 19:23] parsely.
+I think I have a way to solve it, what I did was delete (maybe you can just copy elsewhere to keep them) all the folders under /2023-07-lens/lib, then I did a `forge install` and it installed all dependencies, no sure if that helps, I was then able to do a `forge build` and it worked fine
+
+
+[07/18/2023 19:29] saint6704
+I'm using linux and doing everything but it won't work 
+I think the dependencies are not installed correctly and hence its showing the same issue
+
+
+[07/18/2023 19:31] saint6704
+I did what you said and it worked perfectly fine
+Thanks alot ser
+
+
+[07/18/2023 19:33] parsely.
+Super news....... and a good start, so next I hope you find some really nice findings, hope it goes well!
+
+
+[07/18/2023 19:33] saint6704
+its just my second audit ser 
+I'll try my best
+
+{Reactions}
+🚀 (4) 
+
+[07/18/2023 23:09] johnlaw8854
+Get it!!
+
+
+[07/19/2023 12:58] thebrittfactor (pinned)
+**Wardens** - please note that the automated findings output (AKA the winning bot race report 🏆, submitted by @0x6980) is posted below.
+
+These are considered publicly known issues and are not eligible for awards.
+
+🤖 **Automated findings:** 
+https://gist.github.com/thebrittfactor/3dc2ed1320de95e111a25c1744f4d33e
+
+📄 **Code4rena submission guidelines and automated findings policy:** 
+https://docs.code4rena.com/roles/wardens/submission-policy#automated-findings-ineligible
+
+The above link will also be added to the contest README shortly.
+
+{Reactions}
+👍🏻 
+
+[07/19/2023 13:19] thebrittfactor
+Pinned a message.
+
+
+[07/19/2023 23:19] auditsea
+@Alan - Left you a dm regarding a question.
+
+
+[07/19/2023 23:23] donosonaumczuk
+Replied!
+
+{Reactions}
+👍 
+
+[07/20/2023 09:18] .satyam_
+@Victor Naumik plz accept my request
+
+{Reactions}
+👍 
+
+[07/20/2023 16:13] donosonaumczuk
+Guys let's just send messages, let's avoid the friend request please, thanks!
+
+{Reactions}
+👍 
+
+[07/21/2023 00:18] olanre_waju
+Zero joy 😅
+
+
+[07/21/2023 08:47] vicnaum
+I agree with the above. Also I'm not accepting friend requests from users without Common Servers (too many bots coming). So I assume if you do C4 audit - you're on this server 🙂
+
+{Reactions}
+👍 
+
+[07/21/2023 13:56] neon2835
+guys can somebody tell me what is seadrop ??
+
+
+[07/21/2023 14:05] vicnaum
+SeaDrop is OpenSea’s method of minting new NFT collections, u can read more about it on OpenSea docs or github
+
+
+[07/21/2023 15:56] parsely.
+Please may I ask for more insight? Why does the code allow  "-" when validating a migration localName but a local one is only allowed "_" eg 
+Migrate:
+```
+if (!_isAlphaNumeric(localNameAsBytes[i]) && localNameAsBytes[i] != '-' && localNameAsBytes[i] != '_') {
+                revert HandlesErrors.HandleContainsInvalidCharacters();
+            }
+```
+Validate local:
+```
+if (!_isAlphaNumeric(localNameAsBytes[i]) && localNameAsBytes[i] != '_') {
+                revert HandlesErrors.HandleContainsInvalidCharacters();
+            }
+```
+
+will the "-" cause any issues if create locally?
+
+
+[07/21/2023 16:36] neon2835
+thanks!
+
+
+[07/21/2023 16:53] neon2835
+why "contracts/modules"  Out of scope ?
+
+
+[07/21/2023 17:23] parsely.
+Please may I ask, what happens if for some reason, a profile can't be migrated?
+
+
+[07/21/2023 17:36] vicnaum
+To focus the audit more on the core features of the protocol
+
+
+[07/21/2023 17:37] vicnaum
+All profiles should be able to be migrated. The only case when migration isn't performed is if profile was already performed. But it doesn't fail - it just skips the profile if it was already migrated.
+
+
+[07/21/2023 18:31] 0xhuy0512
+What is `mirror`?
+
+
+[07/21/2023 18:33] vicnaum
+A `mirror` is like retweet in twitter - a copy of a publication, which just points to original one and doesn't have it's own content
+
+{Reactions}
+👍 
+
+[07/21/2023 18:33] 0xhuy0512
+Nevermind, it's share
+
+
+[07/21/2023 18:34] 0xhuy0512
+Any recommended Lens implement website so that I can try it out?
+
+
+[07/21/2023 18:37] vicnaum
+There is Lenster, Orb, Buttrfly and many others. https://lenster.xyz/ for example is browser based.
+
+
+[07/22/2023 13:39] eme0242
+Hi @Victor Naumik I sent a friend request
+
+{Reactions}
+🫡 
+
+[07/22/2023 19:50] parsely.
+@Victor Naumik  @Alan Please may I check do the migration tests work if I select "testnet", it does not seem to be working with the addresses given
+
+
+[07/22/2023 19:51] donosonaumczuk
+It could be, migration tests are still in progress
+
+
+[07/22/2023 19:52] parsely.
+I get `setUp failed reason="ERC721: owner query for nonexistent token" contract=0x978e3286eb805934215a88694d80b09aded68d90`
+
+
+[07/22/2023 19:52] donosonaumczuk
+I'll go through all DMs I received in a couple of minutes
+
+
+[07/22/2023 19:53] parsely.
+Ignore mine, I answered my own question,(about an hour back) sorry
+
+
+[07/22/2023 19:53] parsely.
+I mean my DM
+
+
+[07/22/2023 19:53] donosonaumczuk
+Got it
+
+
+[07/22/2023 19:56] parsely.
+Shall i try mainnet, seems on testnet ```
+    │   ├─ [2645] 0x1A2BB1bc90AA5716f5Eb85FD1823338BD1b6f772::ownerOf(1) [delegatecall]
+    │   │   └─ ← "ERC721: owner query for nonexistent token"
+    │   └─ ← "ERC721: owner query for nonexistent token"
+    └─ ← "ERC721: owner query for nonexistent token"
+```
+
+
+[07/22/2023 21:05] parsely.
+@Alan @Victor Naumik Please may I ask if you have seen this before: Mainnet Migration test gives a different error but not the same as testnet ```
+[FAIL. Reason: Setup failed: Memory allocation overflow] setUp() (gas: 0)``` 
+I have doubled the memory allocation in foundry.toml
+
+
+[07/23/2023 07:16] 0xhuy0512
+Is the dev's expectation after migration making all the dapp functionality stay the same?
+
+
+[07/23/2023 07:37] vicnaum
+Yes. Of course new features will arise (see the changes in V2 in readme), but general protocol functionality should be smooth
+
+
+[07/23/2023 07:41] vicnaum
+What do you have in your .env? jk 😄
+I think we forgot to mention how to setup fork tests in ENV in the readme.
+
+You need to add a the following to your .env if you want to test on a fork:
+`TESTING_FORK=mainnet`
+(or testnet)
+
+Then it will use a fork to test.
+But now I remember why we didn't add it - cause most tests fail with this (we still haven't implemented the support for all the test cases to act on fork). And the reason for that is simple - in most of the tests we assume V2 is already live. But it isn't - it's still V1 on-chain and needs to be upgraded.
+
+
+[07/23/2023 08:40] 0xhuy0512
+For unwrapped follow, we don't have to approve follow, right?
+
+
+[07/23/2023 09:38] 0xhuy0512
+Handle is like username right? Can we trade it like ENS?
+
+
+[07/23/2023 15:04] saint6704
+I think yes all the lens handles are tradable on OS
+
+
+[07/23/2023 16:55] vicnaum
+Yes
+
+
+[07/23/2023 16:57] 0xhuy0512
+answer this too pls
+
+
+[07/23/2023 17:03] donosonaumczuk
+ApproveFollow is only for wrapped follow NFTs
+
+
+[07/23/2023 17:05] 0xhuy0512
+so if user A follow user B, user B don't have to approve. if user A wrap his follow, then user B have to approve?
+
+
+[07/23/2023 17:06] donosonaumczuk
+Nono, the ApproveFollow doesn't have anything to do with that
+
+
+[07/23/2023 17:06] donosonaumczuk
+ApproveFollow is like ERC-721 Approve but for follow state instead of ownership state
+
+
+[07/23/2023 17:07] donosonaumczuk
+Basically, A approves C to use his follow NFT to follow B, but A keeps being the owner of the NFT
+
+
+[07/23/2023 17:11] 0xhuy0512
+so after this, A follow B?
+
+
+[07/23/2023 17:14] donosonaumczuk
+1. A follows B. A now owns a Follow NFT of B, and is following B with it. Let's say this NFT has id 7
+2. A ApproveFollow C for Follow NFT  7
+3. C can now follow B using Follow NFT 7
+4. A will still be the owner of the NFT 7, but will stop following B, as C is the one using the NFT to follow B now
+
+{Reactions}
+❤️ 
+
+[07/24/2023 00:49] donosonaumczuk
+Ok, up to date with all the DMs (:
+
+
+[07/24/2023 06:57] parsely.
+Hi @Victor Naumik Just to confirm:  I have added the required values to the .env and can swap between the testnet and mainnet, on testnet it fails as above (https://discord.com/channels/810916927919620096/1129378367813189652/1132400783841820712) and mainnet just gives the memory error, it does not manage to retrieve the profile in the lines in setup() ```
+address followNFTAddress = hub.getProfile(idOfProfileFollowed).followNFT;
+
+```
+
+
+[07/24/2023 13:27] mrudenko
+@here hi guys! Does anyone faced this issue after `forge build` command?
+```
+[⠊] Compiling...
+[⠃] Installing solc version 0.8.19
+[⠊] Failed to install solc 0.8.19: Unknown version provided
+Error: 
+Unknown version provided
+```
+
+
+[07/24/2023 13:31] donosonaumczuk
+Do you have foundry up to date? Maybe you need to run `foundryup` to update it
+
+
+[07/24/2023 13:47] donosonaumczuk
+Yes, we still have to tweak a bit tests to work in a fork
+
+{Reactions}
+🙏 
+
+[07/24/2023 13:58] vicnaum
+Yes, so, that happens because the LensHub on-chain is V1 and has a different interface with a different returning type for getProfile - that's why foundry gets lost.
+To fix that you need to add a V1 interface somewhere in the test:
+```
+interface OldLensHub {
+    struct ProfileStruct {
+        uint256 pubCount;
+        address followModule;
+        address followNFT;
+        string handle;
+        string imageURI;
+        string followNFTURI;
+    }
+
+    function getProfile(uint256 profileId) external view returns (ProfileStruct memory);
+}
+```
+
+And then change that line to be like this:
+```
+        address followNFTAddress = OldLensHub(address(hub)).getProfile(idOfProfileFollowed).followNFT;
+```
+
+Then this test works.
+
+
+[07/24/2023 13:58] parsely.
+Thanks!
+
+
+[07/24/2023 13:59] parsely.
+Thank you very much
+
+
+[07/24/2023 14:14] mrudenko
+@Alan yes, I have it. I did foundryup - the same result
+
+
+[07/24/2023 14:15] donosonaumczuk
+Here there was an issue opened in Foundry
+https://github.com/foundry-rs/foundry/issues/4933
+
+{Embed}
+https://github.com/foundry-rs/foundry/issues/4933
+Failed to install solc 0.8.20: Unknown version provided · Issue #49...
+Component Forge Have you ensured that all of these are up to date? Foundry Foundryup What version of Foundry are you on? forge 0.2.0 (f3c20d5 2023-05-12T00:11:18.720897000Z) What command(s) is the ...
+Code4rena - ARCHIVE-Q3-2023 - lens-jul17 [1129378367813189652].txt_Files/4933-8E3F2
+
+{Reactions}
+👍 
+
+[07/24/2023 14:16] donosonaumczuk
+In theory it should be fixed, so having the latest version should work...
+
+
+[07/24/2023 14:16] donosonaumczuk
+It was fixed in early June
+
+
+[07/24/2023 14:19] donosonaumczuk
+What is your output for `forge --version` ?
+
+
+[07/24/2023 14:21] mrudenko
+forge 0.2.0 (e049b0d 2023-02-22T19:31:23.551514Z)
+
+
+[07/24/2023 14:21] mrudenko
+I tried directly set version in .toml file - didn't help
+
+
+[07/24/2023 14:21] donosonaumczuk
+That's quite outdated, that's February 2023
+
+
+[07/24/2023 14:22] mrudenko
+probably internal macos issue, will try to remove foundry and reinstall it
+
+
+[07/24/2023 14:22] donosonaumczuk
+Yeah, you need to somehow get a foundry version that is at least mid June 2023
+
+
+[07/24/2023 14:22] donosonaumczuk
+That should have the solidity support already, and work
+
+
+[07/24/2023 14:23] donosonaumczuk
+`foundryup` should do the trick, but if for some reason it is not doing it, then remove and install again I guess
+
+
+[07/24/2023 14:24] mrudenko
+thanks!
+
+
+[07/25/2023 06:25] 0xhuy0512
+I still can't understand the usecase of this
+
+
+[07/25/2023 07:23] vicnaum
+Imagine Vitalik gives perks to his first 100 followers. Alice has a FollowNFT #7 of Vitalik which is cool and valuable, so she doesn't want to sell it. So she decides to rent it to someone else - so she allows Bob to use her FollowNFT #7 to follow Vitalik and get his exclusive content, but the FollowNFT still remains at Alice wallet as she is the owner of the NFT, but the follower recorded in it is Bob. Bob pays Alice some fee for that.
+
+
+[07/25/2023 07:56] nobody2018
+@Victor Naumik Which tokens are included in ModuleGlobals._currencyWhitelisted?
+
+
+[07/25/2023 08:10] vicnaum
+Any ERC20 tokens can be whitelisted, but the governance makes sure they are legit and don't break the protocol
+
+
+[07/25/2023 08:11] nobody2018
+thanks
+
+
+[07/25/2023 19:48] parsely.
+@Victor Naumik @Alan Please may I confirm, will collect be completely deprecated "uncallable" after the upgrade?
+
+
+[07/25/2023 19:49] donosonaumczuk
+No, you have the legacy collect for backwards compatibility
+
+
+[07/27/2023 07:33] alexczm
+No answer for this Q yet?
+
+
+[07/27/2023 07:34] parsely.
+No sorry , not yet
+
+{Reactions}
+👍 
+
+[07/27/2023 07:34] vicnaum
+Oh sorry, I've missed that
+
+
+[07/27/2023 07:35] vicnaum
+It's basically: we're disallowing a hyphen `-` to be used in new names starting from V2, but at the same time we allow existing users who already have it to migrate
+
+{Reactions}
+👍 (3) 
+
+[07/27/2023 16:24] parsely.
+Please may I ask what a referenceModule does? I see how they are connected and stored but what is the purpose of a referenceModule?
+
+
+[07/27/2023 19:53] vicnaum
+If you create a reference publication (comment/quote/mirror) - it goes through the ReferenceModule first (if it's set). You can make things like FollowerOnlyReferenceModule (module checks that only your followers can comment), or DegreesOfSeparationReferenceModule (only people who you follow + N-degrees of separation can comment/quote/mirror your posts), or FeeReferenceModule (pay to comment), or TokenGatedReferenceModule (only holders of BAYC can comment on your post), etc
+
+
+[07/27/2023 19:54] vicnaum
+Reference module is per-Publication based, so you can set a different one (or not set at all) for every publication you make - and then people would have to abide the rules specified when they try to Comment/Quote/Mirror it
+
+{Reactions}
+🙏 
+
+[07/27/2023 20:27] parsely.
+Wow, I have combed through the code for days now, this is some seriously solid code! Well done DEV Team!!! (not giving up just yet though 🙂 )
+
+{Reactions}
+💯 (8) 🍉 
+
+[07/27/2023 20:28] donosonaumczuk
+Thank you, glad you are liking it 🙏
+
+{Reactions}
+🍴 
+
+[07/28/2023 13:39] 0xhuy0512
+@Victor Naumik please accept friend request
+
+
+[07/28/2023 13:40] vicnaum
+yes
+
+
+[07/28/2023 16:50] donosonaumczuk
+Lot of new DMs today, we are catching up with them
+
+
+[07/28/2023 19:15] saint6704
+did anyoneone find an issue??
+
+{Reactions}
+🥲 
+
+[07/28/2023 21:05] stormreckson
+The codebase is tight
+
+
+[07/28/2023 22:46] crypto_s3c
+Hi,
+For the constructor argument that takes an address, I enter the address 0xdb46d1dc155634fbc732f92e853b10b288ad5a1d and I get the following error:
+Error (9429): This looks like an address but has an invalid checksum. Correct checksummed address: "0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d". If this is not used as an address, please prepend '00'.
+
+For example, when I enter an address 0xFABB0ac9d68B0B445fB7357272Ff202C5651694a, I get the following error:
+[FAIL. Reason: NotHub()]
+
+Would you please guide me, which address should I use?
+
+
+[07/29/2023 03:18] donosonaumczuk
+Well, it depends of the context of what constructor and what parameter are you passing. I guess because of the error you get,  you need to pass the LensHub?
+
+
+[07/29/2023 03:18] donosonaumczuk
+The first address you passed is ok, just write it in the way as the error outputs it, the case is important for the checksum
+
+
+[07/29/2023 03:18] donosonaumczuk
+So, basically try 0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d
+
+
+[07/29/2023 03:19] donosonaumczuk
+But with that exact case patterns
+
+
+[07/29/2023 03:19] donosonaumczuk
+If that fails you will need to provide more context otherwise it's hard to help
+
+
+[07/29/2023 07:40] saint6704
+it literally is
+
+
+[07/29/2023 11:25] crypto_s3c
+Thank you for your answer
+
+
+[07/29/2023 12:32] parsely.
+@Alan @Victor Naumik  Please may I ask for a bit deeper insight into why address(0) is "valid" in this scenario? I know it is, just asking for more context.
+```
+address followTokenOwner = _unsafeOwnerOf(followTokenId);
+if (followTokenOwner == address(0)) {
+   // Follow token is unwrapped.
+   // Unfollowing and allowing recovery.
+   _unfollow({unfollower: unfollowerProfileId, followTokenId: followTokenId});
+            _followDataByFollowTokenId[followTokenId].profileIdAllowedToRecover = unfollowerProfileId;```
+
+
+[07/29/2023 12:55] parsely.
+Please may I ask, just to understand, why can only an EOA have tokenGauadian?
+
+
+[07/29/2023 15:29] parsely.
+Please may I also ask to understand, why is only lowercase handles allowed?
+
+
+[07/29/2023 15:49] vicnaum
+so if the follow is unwrapped its not an ERC721 (it doesnt exist as ERC721) so it cannot have an owner (owner is 0)
+
+
+[07/29/2023 15:49] vicnaum
+when u wrap it - it gets minted and the owner appears
+
+
+[07/29/2023 15:51] vicnaum
+for safety reasons - the contracts might not support disabling the tokenGuardian so the token might be locked forever - so we disable it for all contracts
+
+
+[07/29/2023 15:51] vicnaum
+in future we might have something like SupportsTokenGuardianInteface and then accept such contracts
+
+
+[07/29/2023 15:51] vicnaum
+or even better - have it disabled for contracts by default but allow then to enable it
+
+
+[07/29/2023 15:52] vicnaum
+mostly for safety - so you dont confuse I with l
+
+{Reactions}
+🙏 
+
+[07/31/2023 10:35] donosonaumczuk
+I should be up to date with all DMs, if not, please send a message
+
+
+[07/31/2023 18:05] parsely.
+@Alan @Victor Naumik Thank you for all the patience and support, it was really great collaborating with you on this. I appreciate the helpful and quick responses, Thank You! (in my humble opinion, this codebase was really top quality, WELL DONE!!)
+
+{Reactions}
+💯 (5) 
+
+[07/31/2023 18:08] acegawd
+DMed you @Alan
+
+
+[07/31/2023 18:10] donosonaumczuk
+Thank you for participating in the audit, a pleasure to talk with you all!
+
+
+[07/31/2023 18:10] donosonaumczuk
+Replied
+
+
+[07/31/2023 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺wardens The **Lens Protocol V2** audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks. Keep an eye on #📢announcements for regular updates on how the audit is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a Contest-Admin if you have questions along the way!
+
+{Reactions}
+✅ 
+
+[07/31/2023 20:02] eme0242
+This was a tight and organized codebase.
+Much respect to the devs🫡
+Thanks a lot @Alan and @Victor Naumik for answering all questions
+
+{Reactions}
+hi5 (7) 
+
+[07/31/2023 22:50] donosonaumczuk
+Thank you everyone for your participation in the contest!
+
+{Reactions}
+❤️ (10) 
+
+[08/11/2023 06:55] 0xhuy0512
+Can I ask on how many submissions?
+
+
+[08/11/2023 12:04] nobody2018
+188
+
+{Reactions}
+❤️ 
+
+[08/11/2023 15:55] ihtishamsudo
+Then it won’t take much time i think
+
+
+[08/21/2023 14:07] saint6704
+Any news on results?
+
+{Reactions}
+👀 (3) 
+
+[08/23/2023 11:44] 0xhuy0512
+https://tenor.com/view/thinking-cat-gif-25591285
+
+{Embed}
+https://tenor.com/view/thinking-cat-gif-25591285
+Code4rena - ARCHIVE-Q3-2023 - lens-jul17 [1129378367813189652].txt_Files/thinking-cat-DFA30.png
+
+{Reactions}
+gummy_bear 
+
+[08/24/2023 17:03] donosonaumczuk
+You will be notified once C4 finishes the judgement phase
+
+{Reactions}
+💯 (4) 
+
+[09/06/2023 21:24] _paperparachute
+🤑 🎉  Awards for **Lens Protocol V2**:
+
+$29,747.29 USDC » @MiloTruck 
+$12,925.98 USDC » @juancito 
+$7,481.05 USDC » @Emmanuel 
+$4,288.33 USDC » @evmboi32  
+$3,458.78 USDC » @klau5 
+$3,192.72 USDC » @maanas 
+$2,660.60 USDC » @Limbooo 
+$430.47 USDC » @Prestige  
+$31.38 USDC » @ginlee 
+$31.38 USDC » @David Giladi 
+$31.38 USDC » @Bughunter101 
+$31.38 USDC » @Stormreckson 
+$31.38 USDC » @descharre 
+$31.38 USDC » @0xAnah  
+$31.38 USDC » @Iurii3 
+$31.38 USDC » @Santiago Moreno 
+$31.38 USDC » @mrudenko  
+$31.38 USDC » @Rolezn 
+$31.38 USDC » @adeolu 
+$31.38 USDC » @0xhuy0512 
+$31.38 USDC » @ihtishamsudo
+$31.38 USDC » @Sathish9098 
+$31.38 USDC » @BugzyVonBuggernaut 
+$31.38 USDC » @MohammedRizwan 
+$31.38 USDC » @AlexCzm 
+$31.38 USDC » @Kaysoft 
+
+🏁 Findings summary
+--------------------------------------—
+High risk findings: 0
+Med risk findings: 11 unique (24 total)
+QA reports: 23 total (Best: @MiloTruck)
+
+Awards will be distributed on Polygon within the next week. Congratulations all!  💸 💸 💸
+
+*Note: If you participated in this audit and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.*
+
+{Reactions}
+🎉 (12) hi5 (4) 
+
+[09/06/2023 21:35] 0xjuancito
+https://tenor.com/view/doctor-sung-sung-twrp-tupperware-remix-party-keytar-gif-27039541
+
+{Embed}
+https://tenor.com/view/doctor-sung-sung-twrp-tupperware-remix-party-keytar-gif-27039541
+Code4rena - ARCHIVE-Q3-2023 - lens-jul17 [1129378367813189652].txt_Files/doctor-sung-sung-341B0.png
+
+{Reactions}
+🔥 (10) 😂 (7) 🎹 (4) 
+
+[09/06/2023 21:47] t1moh
+@MiloTruck You are capable of beating Trust's 4 top1 in a row
+
+{Reactions}
+💪 (5) 
+
+[09/06/2023 21:55] berlin.101
+I want to learn from @MiloTruck 🥹
+
+
+[09/06/2023 22:08] 0xtendency
+K*ling it @MiloTruck
+
+
+[09/06/2023 22:14] 0xstalin
+@MiloTruck are you the new 0x52? 💯
+
+
+[09/06/2023 22:18] catellatech
+@juancito very happy to see you in the top 3 !!!! Viva Argentina 🎉
+
+{Reactions}
+🙌 
+
+[09/06/2023 22:33] olanre_waju
+@MiloTruck is in a beast mode, a very angry one at that:4739_Skeletor:
+
+
+[09/06/2023 22:53] kmanofficial
+@MiloTruck is killing it
+
+
+[09/06/2023 22:54] 0xjuancito
+Congrats @MiloTruck and @Emmanuel! Amazing work!
+
+{Reactions}
+❤️ (3) 
+
+[09/07/2023 00:05] milotruck
+Congrats everyone! Especially @juancito and @Emmanuel, y'all did amazing as well.
+
+{Reactions}
+❤️ (5) 
+
+[09/07/2023 01:19] baice8614
+congrats !!
+
+
+[09/07/2023 03:06] eme0242
+Congratulations to everyone
+Thanks @juancito  and @MiloTruck 
+You guys slayed it🙌
+
+{Reactions}
+❤️ 
+
+[09/07/2023 04:42] musprodev
+@juancito @MiloTruck can I DM for some review pls?
+
+
+[09/07/2023 05:29] saint6704
+@MiloTruck @juancito 
+Congratulations🎉🥳🎉
+
+{Reactions}
+❤️ (4) 
+
+[09/07/2023 05:29] saint6704
+Amazing results
+
+
+[09/07/2023 09:20] stormreckson
+👏
+
+
+[09/07/2023 11:10] 0xjuancito
+Sure
+
+
+[09/07/2023 11:41] shealtielanz
+Congrats @Emmanuel you’re killing it everywhere
+
+{Reactions}
+❤️ (2) 
+
+==============================================================
+Exported 160 message(s)
+==============================================================
